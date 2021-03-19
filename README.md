@@ -1,0 +1,2 @@
+# LeetCodeDaily
+I'm Noob.
