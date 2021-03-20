@@ -1,6 +1,64 @@
 /*
 EvaluateReversePolishNotation
 by N.H.J.
+ver.2
+2021.3.20
+*/
+
+class Solution {
+public:
+    int arrarys[10000];
+    int length=0;
+    int numlength=0;
+    
+    int evalRPN(vector<string>& tokens) {
+        
+
+        for(int i=0;i<tokens.size();i++)
+        {
+
+            if(tokens[i]=="+")
+            {
+                arrarys[length-2]=arrarys[length-2]+arrarys[length-1];
+                length=length-1;
+            }
+            else if(tokens[i]=="-")
+            {
+                arrarys[length-2]=arrarys[length-2]-arrarys[length-1];
+                length=length-1;
+            }
+            else if(tokens[i]=="*")
+            {
+                arrarys[length-2]=arrarys[length-2]*arrarys[length-1];
+                length=length-1;
+            }
+            else if(tokens[i]=="/")
+            {
+                 arrarys[length-2]=arrarys[length-2]/arrarys[length-1];
+                length=length-1;
+            }
+            else
+            {
+                arrarys[length]=stoi(tokens[i]);
+                length++;
+            }
+                
+        }
+        
+        return arrarys[0];
+
+    }
+   
+};
+/*
+EvaluateReversePolishNotation
+by N.H.J.
+ver.1
+2021.3.20
+*/
+/*
+EvaluateReversePolishNotation
+by N.H.J.
 2021.3.20
 */
 
@@ -75,5 +133,8 @@ public:
         }
     }
 };
+
+
+
 
 
