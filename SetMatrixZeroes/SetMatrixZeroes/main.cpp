@@ -103,3 +103,63 @@ public:
     }
 
 };
+
+/*
+SetMatrixZeroes
+by N.H.J.
+2021.3.21
+Ver.3
+*/
+
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix) {
+        int m=matrix.size();
+        int n=matrix[0].size();
+        
+        for(int i=0;i<m;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(matrix[i][j]==0)
+                    setMinus(matrix,i,j);
+            }
+        }
+        for(int i=matrix[0].size()-1;i>=1;i--)
+        {
+            if(matrix[0][i]==0)
+            {
+                for(int j=0;j<matrix.size();j++)
+                    matrix[j][i]=0;
+            }
+        }
+        for(int i=0;i<matrix.size();i++)
+        {
+            if(matrix[i][0]==0)
+            {
+                for(int j=0;j<matrix[0].size();j++)
+                    matrix[i][j]=0;
+            }
+        }
+            if(this->col1==0)
+                setZero(matrix);
+    }
+
+    void setMinus(vector<vector<int>>& mat,int m,int n)
+    {
+    if(n!=0)
+    {
+       mat[m][0]=0;
+        mat[0][n]=0;
+    }
+    else
+        this->col1=0;
+    }
+    void setZero(vector<vector<int>>& mat)
+    {
+        for(int i=0;i<mat.size();i++)
+            mat[i][0]=0;
+    }
+private:
+    int col1=1;
+};
