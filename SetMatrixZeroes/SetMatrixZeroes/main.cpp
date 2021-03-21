@@ -62,10 +62,10 @@ public:
             {
                 if(matrix[i][j]==0)
                 {
-                    zerosm[k]=i;
-                    k++;
-                    zerosn[t]=j;
-                    t++;
+                    if(inArrary(zerosm,k,i))
+                        k++;
+                    if(inArrary(zerosn,t,j))
+                        t++;
                 }
             }
         }
@@ -87,4 +87,19 @@ public:
         }
   
     }
+
+    bool inArrary(int a[],int k,int aa)
+    {
+        for(int i=0;i<k;i++)
+        {
+            if(a[i]==aa)
+            {
+                return false;
+            }
+        }
+        a[k]=aa;
+        return true;
+
+    }
+
 };
